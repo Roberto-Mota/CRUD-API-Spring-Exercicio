@@ -30,9 +30,14 @@ public class HelloEndpoints {
      * Exemplos de Endpoints bem básicos
      */
 
+     Logger log = LoggerFactory.getLogger(HelloEndpoints.class); //Objetos Logger não são construidos por mim, preciso apenas passar a classe para um factory
+
     @RequestMapping(path="/hello", method = RequestMethod.GET)
     public ResponseEntity<String> hello() {
-
+        log.error("Não consegui");
+        log.info("Informação aqui");
+        //log.debug("Debug aqui");
+        log.warn("Essa caveira significa prerigo!");
         return new ResponseEntity<String>("Hello world!", HttpStatus.OK);
     }
     @RequestMapping(path="/hello/{nome}", method = RequestMethod.GET)
@@ -41,7 +46,7 @@ public class HelloEndpoints {
     }
     @RequestMapping(path="/hello/{nome}/horario", method = RequestMethod.GET)
     public ResponseEntity<String> helloNomeHorario(@PathVariable String nome) {
-        return new ResponseEntity<String>("Olá, "+ nome + " " + clienteService.testa(), HttpStatus.OK);
+        return new ResponseEntity<String>("Olá, "+ nome + " " + tempoService.testa(), HttpStatus.OK);
     }
 
     // @RequestMapping(path="/teste", method = RequestMethod.GET)
