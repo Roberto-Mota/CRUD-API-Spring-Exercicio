@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 //import org.springframework.web.bind.annotation.Autowired;
 
-import com.letscode.ecommerce.resources.TempoService;
+import com.letscode.ecommerce.TempoService;
 import com.letscode.ecommerce.services.ClienteService;
 
 @RestController
