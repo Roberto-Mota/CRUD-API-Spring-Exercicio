@@ -1,5 +1,5 @@
 package com.letscode.ecommerce.models;
 
-public class Cliente {
+public class Produto {
 
 }
