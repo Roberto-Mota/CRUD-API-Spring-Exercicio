@@ -1,33 +1,23 @@
 package com.letscode.ecommerce.services;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.letscode.ecommerce.dto.ProdutoDto;
 import com.letscode.ecommerce.models.Produto;
 
 @Service
-public class ProdutoService {
-//     boolean createCliente
-//     boolean readCliente
-//     boolean updateCliente
-//     boolean deleteCliente
-//so testar o pq do erro:
-public String testa() {
-    //LocalDateTime horas = new LocalDateTime.now();
-    return LocalDateTime.now().toString();
- }
+public interface ProdutoService {
 
-public static List<Produto> listarTodosProdutos() {
-    return null;
-}
+public String testa();
 
-public boolean removerProduto(long id) {
-    return false;
-}
+List<Produto> listarTodosProdutos();
 
-public boolean atualizarProduto() {
-    return false;
-}
+public boolean novoProduto(ProdutoDto produto);
+
+public boolean atualizarProduto(Produto produto);
+
+public boolean removerProduto(long id);
+
 }

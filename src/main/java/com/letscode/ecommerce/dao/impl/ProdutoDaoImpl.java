@@ -2,6 +2,8 @@ package com.letscode.ecommerce.dao.impl;
 
 import java.math.BigDecimal;
 
+// É criado uma interface para reduzir o acoplamento do service com o resource
+
 public class ProdutoDaoImpl {
     private Long Id;
     private String nome;

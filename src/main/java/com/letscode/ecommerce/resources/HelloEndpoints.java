@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 //import org.springframework.web.bind.annotation.Autowired;
 
 import com.letscode.ecommerce.TempoService;
-import com.letscode.ecommerce.services.ClienteService;
 
 @RestController
 public class HelloEndpoints {
@@ -23,8 +22,6 @@ public class HelloEndpoints {
 
     @Autowired
     private TempoService tempoService;
-    @Autowired
-    private ProdutoService clienteService;
     // Caso eu coloque uma interface em autowired, o spring não tenta criar uma interface, mas sim uma classe de implementação que implementa a classe
     /*
      * Exemplos de Endpoints bem básicos
