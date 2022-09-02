@@ -54,5 +54,12 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public Produto(String nome, BigDecimal preco, String descricao) {
+        //Construtor sem Id, pois cliente não necessariamente deve mandar o id
+        this.nome = nome;
+        this.preco = preco;
+        this.descricao = descricao;
+    }
+
 
 }

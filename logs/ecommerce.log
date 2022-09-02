@@ -1,1 +1,154 @@
 2022-08-31 07:29:16.303  WARN 17660 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h45m4s169ms45µs801ns).
+2022-09-02 16:12:41.747  INFO 35948 --- [main] c.l.ecommerce.EcommerceApplication       : Starting EcommerceApplication using Java 11.0.15.1 on BBTMF-64T00L3 with PID 35948 (C:\Users\F8176938\OneDrive - Banco do Brasil S.A\Área de Trabalho\Aulas_LetsCode\Web\ecommerce\target\classes started by F8176938 in C:\Users\F8176938\OneDrive - Banco do Brasil S.A\Área de Trabalho\Aulas_LetsCode\Web\ecommerce)
+2022-09-02 16:12:41.752  INFO 35948 --- [main] c.l.ecommerce.EcommerceApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-09-02 16:12:42.939  INFO 35948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-02 16:12:43.091  INFO 35948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 121 ms. Found 1 JPA repository interfaces.
+2022-09-02 16:12:43.477  INFO 35948 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=27b07986-16b2-32f7-b787-e53ccedbc1d7
+2022-09-02 16:12:44.918  INFO 35948 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-02 16:12:44.940  INFO 35948 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-02 16:12:44.944  INFO 35948 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-02 16:12:45.295  INFO 35948 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-02 16:12:45.297  INFO 35948 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3472 ms
+2022-09-02 16:12:45.377  INFO 35948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-02 16:12:45.565  INFO 35948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-02 16:12:45.584  INFO 35948 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:moviesbattle'
+2022-09-02 16:12:45.873  INFO 35948 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-02 16:12:45.972  INFO 35948 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-02 16:12:46.261  INFO 35948 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-02 16:12:46.489  INFO 35948 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-09-02 16:12:47.005  INFO 35948 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.letscode.ecommerce.models.Produto (class must be instantiated by Interceptor)
+2022-09-02 16:12:47.416  INFO 35948 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-02 16:12:47.440  INFO 35948 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-02 16:12:47.465  WARN 35948 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'produtoResources': Unsatisfied dependency expressed through field 'produtoService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.letscode.ecommerce.services.ProdutoService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-09-02 16:12:47.466  INFO 35948 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-02 16:12:47.470  INFO 35948 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-09-02 16:12:47.490  INFO 35948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-02 16:12:47.502  INFO 35948 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-02 16:12:47.505  INFO 35948 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-02 16:12:47.526  INFO 35948 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-02 16:12:47.576 ERROR 35948 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field produtoService in com.letscode.ecommerce.resources.ProdutoResources required a bean of type 'com.letscode.ecommerce.services.ProdutoService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.letscode.ecommerce.services.ProdutoService' in your configuration.
+
+2022-09-02 16:18:20.468  INFO 21188 --- [main] c.l.ecommerce.EcommerceApplication       : Starting EcommerceApplication using Java 11.0.15.1 on BBTMF-64T00L3 with PID 21188 (C:\Users\F8176938\OneDrive - Banco do Brasil S.A\Área de Trabalho\Aulas_LetsCode\Web\ecommerce\target\classes started by F8176938 in C:\Users\F8176938\OneDrive - Banco do Brasil S.A\Área de Trabalho\Aulas_LetsCode\Web\ecommerce)
+2022-09-02 16:18:20.477  INFO 21188 --- [main] c.l.ecommerce.EcommerceApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-09-02 16:18:21.804  INFO 21188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-02 16:18:21.938  INFO 21188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110 ms. Found 1 JPA repository interfaces.
+2022-09-02 16:18:22.332  INFO 21188 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=27b07986-16b2-32f7-b787-e53ccedbc1d7
+2022-09-02 16:18:24.122  INFO 21188 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-02 16:18:24.161  INFO 21188 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-02 16:18:24.166  INFO 21188 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-02 16:18:24.540  INFO 21188 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-02 16:18:24.541  INFO 21188 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3968 ms
+2022-09-02 16:18:24.626  INFO 21188 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-02 16:18:24.832  INFO 21188 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-02 16:18:24.850  INFO 21188 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:moviesbattle'
+2022-09-02 16:18:25.148  INFO 21188 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-02 16:18:25.249  INFO 21188 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-02 16:18:25.466  INFO 21188 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-02 16:18:25.664  INFO 21188 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-09-02 16:18:26.076  INFO 21188 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.letscode.ecommerce.models.Produto (class must be instantiated by Interceptor)
+2022-09-02 16:18:26.449  INFO 21188 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-02 16:18:26.468  INFO 21188 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-02 16:18:26.487  WARN 21188 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'produtoResources': Unsatisfied dependency expressed through field 'produtoService'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.letscode.ecommerce.services.ProdutoService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2022-09-02 16:18:26.488  INFO 21188 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-02 16:18:26.489  INFO 21188 --- [main] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-09-02 16:18:26.502  INFO 21188 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-02 16:18:26.509  INFO 21188 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-02 16:18:26.511  INFO 21188 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-09-02 16:18:26.531  INFO 21188 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-09-02 16:18:26.572 ERROR 21188 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field produtoService in com.letscode.ecommerce.resources.ProdutoResources required a bean of type 'com.letscode.ecommerce.services.ProdutoService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.letscode.ecommerce.services.ProdutoService' in your configuration.
+
+2022-09-02 16:31:23.599  INFO 25476 --- [main] c.l.ecommerce.EcommerceApplication       : Starting EcommerceApplication using Java 11.0.15.1 on BBTMF-64T00L3 with PID 25476 (C:\Users\F8176938\OneDrive - Banco do Brasil S.A\Área de Trabalho\Aulas_LetsCode\Web\ecommerce\target\classes started by F8176938 in C:\Users\F8176938\OneDrive - Banco do Brasil S.A\Área de Trabalho\Aulas_LetsCode\Web\ecommerce)
+2022-09-02 16:31:23.608  INFO 25476 --- [main] c.l.ecommerce.EcommerceApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-09-02 16:31:23.932  WARN 25476 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.letscode.ecommerce.EcommerceApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'tempoService' for bean class [com.letscode.ecommerce.services.TempoService] conflicts with existing, non-compatible bean definition of same name and class [com.letscode.ecommerce.resources.TempoService]
+2022-09-02 16:31:24.008 ERROR 25476 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [com.letscode.ecommerce.EcommerceApplication]; nested exception is org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'tempoService' for bean class [com.letscode.ecommerce.services.TempoService] conflicts with existing, non-compatible bean definition of same name and class [com.letscode.ecommerce.resources.TempoService]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:189) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.11.jar:2.6.11]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745) ~[spring-boot-2.6.11.jar:2.6.11]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420) ~[spring-boot-2.6.11.jar:2.6.11]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.6.11.jar:2.6.11]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317) ~[spring-boot-2.6.11.jar:2.6.11]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.6.11.jar:2.6.11]
+	at com.letscode.ecommerce.EcommerceApplication.main(EcommerceApplication.java:9) ~[classes/:na]
+Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionException: Annotation-specified bean name 'tempoService' for bean class [com.letscode.ecommerce.services.TempoService] conflicts with existing, non-compatible bean definition of same name and class [com.letscode.ecommerce.resources.TempoService]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.checkCandidate(ClassPathBeanDefinitionScanner.java:349) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:287) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:296) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:250) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:207) ~[spring-context-5.3.22.jar:5.3.22]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:175) ~[spring-context-5.3.22.jar:5.3.22]
+	... 13 common frames omitted
+
+2022-09-02 16:34:55.603  INFO 29916 --- [main] c.l.ecommerce.EcommerceApplication       : Starting EcommerceApplication using Java 11.0.15.1 on BBTMF-64T00L3 with PID 29916 (C:\Users\F8176938\OneDrive - Banco do Brasil S.A\Área de Trabalho\Aulas_LetsCode\Web\ecommerce\target\classes started by F8176938 in C:\Users\F8176938\OneDrive - Banco do Brasil S.A\Área de Trabalho\Aulas_LetsCode\Web\ecommerce)
+2022-09-02 16:34:55.610  INFO 29916 --- [main] c.l.ecommerce.EcommerceApplication       : No active profile set, falling back to 1 default profile: "default"
+2022-09-02 16:34:57.066  INFO 29916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-02 16:34:57.204  INFO 29916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115 ms. Found 1 JPA repository interfaces.
+2022-09-02 16:34:57.516  INFO 29916 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=88d54d39-0893-3a11-a910-558602cbc0a5
+2022-09-02 16:34:59.164  INFO 29916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-02 16:34:59.186  INFO 29916 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-02 16:34:59.188  INFO 29916 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-02 16:34:59.617  INFO 29916 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-02 16:34:59.618  INFO 29916 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3936 ms
+2022-09-02 16:34:59.682  INFO 29916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-02 16:34:59.859  INFO 29916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-02 16:34:59.874  INFO 29916 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:moviesbattle'
+2022-09-02 16:35:00.130  INFO 29916 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-02 16:35:00.201  INFO 29916 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-02 16:35:00.411  INFO 29916 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-02 16:35:00.550  INFO 29916 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-09-02 16:35:00.909  INFO 29916 --- [main] org.hibernate.tuple.PojoInstantiator     : HHH000182: No default (no-argument) constructor for class: com.letscode.ecommerce.models.Produto (class must be instantiated by Interceptor)
+2022-09-02 16:35:01.260  INFO 29916 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-02 16:35:01.276  INFO 29916 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-02 16:35:01.777  WARN 29916 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-02 16:35:05.032  INFO 29916 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-02 16:35:06.481  INFO 29916 --- [main] c.l.ecommerce.EcommerceApplication       : Started EcommerceApplication in 12.478 seconds (JVM running for 13.382)
+2022-09-02 17:20:50.558  INFO 29916 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-02 17:20:50.561  INFO 29916 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-02 17:20:50.564  INFO 29916 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-09-02 17:20:56.762 ERROR 29916 --- [http-nio-8080-exec-3] c.l.ecommerce.resources.HelloEndpoints   : Não consegui
+2022-09-02 17:20:56.763  INFO 29916 --- [http-nio-8080-exec-3] c.l.ecommerce.resources.HelloEndpoints   : Informação aqui
+2022-09-02 17:20:56.765  WARN 29916 --- [http-nio-8080-exec-3] c.l.ecommerce.resources.HelloEndpoints   : Essa caveira significa prerigo!

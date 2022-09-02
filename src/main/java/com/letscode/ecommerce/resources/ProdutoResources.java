@@ -36,7 +36,7 @@ public class ProdutoResources {
     @RequestMapping(path = "/lerProduto", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Produto>> lerProduto() {
 
-        List<Produto> produtoList = ProdutoService.listarTodosProdutos();
+        List<Produto> produtoList = produtoService.listarTodosProdutos();
         if (produtoList.isEmpty()) {
             // Jogar que a lista esta vazia
             return ResponseEntity.ok(produtoList); // Mudar o retorno
@@ -46,9 +46,9 @@ public class ProdutoResources {
     }
 
     @RequestMapping(path = "/atualizarProduto", method = RequestMethod.PUT)
-    public ResponseEntity<String> atualizarProduto(@PathVariable String nome) {
+    public ResponseEntity<String> atualizarProduto(@PathVariable Produto produto) {
 
-        boolean sucesso = produtoService.atualizarProduto();
+        boolean sucesso = produtoService.atualizarProduto(produto);
         if (sucesso) {
             return new ResponseEntity("Produto deletado com sucesso!", HttpStatus.OK);
         } else {

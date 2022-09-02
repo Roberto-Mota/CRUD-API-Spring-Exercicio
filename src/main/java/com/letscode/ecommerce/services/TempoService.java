@@ -1,4 +1,4 @@
-package com.letscode.ecommerce;
+package com.letscode.ecommerce.services;
 
 import java.time.LocalDateTime;
 
