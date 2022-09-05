@@ -54,5 +54,15 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public Produto(String nome, BigDecimal preco, String descricao) {
+        this.nome = nome;
+        this.preco = preco;
+        this.descricao = descricao;
+    }
+
+    public Produto() {
+        
+    }
+
 
 }
