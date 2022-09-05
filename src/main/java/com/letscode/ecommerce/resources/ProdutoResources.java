@@ -45,13 +45,13 @@ public class ProdutoResources {
     }
 
     @RequestMapping(path = "/atualizarProduto", method = RequestMethod.PUT)
-    public ResponseEntity<Produto> atualizarProduto(@RequestBody Produto produto) {
-
+    public ResponseEntity<String> atualizarProduto(@RequestBody Produto produto) {
+        System.out.println("Produto chega aqui assim: " + produto.toString());
         boolean sucesso = produtoService.atualizarProduto(produto);
         if (sucesso) {
-            return new ResponseEntity("Produto deletado com sucesso!", HttpStatus.OK);
+            return new ResponseEntity("Produto atualizado com sucesso!", HttpStatus.OK);
         } else {
-            return new ResponseEntity("Remocao do produto falhou!", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("Atualização do produto falhou!", HttpStatus.BAD_REQUEST);
         }
     }
 

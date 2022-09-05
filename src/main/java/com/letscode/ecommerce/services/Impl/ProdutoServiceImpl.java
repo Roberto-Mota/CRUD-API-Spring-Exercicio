@@ -25,7 +25,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public List<Produto> listarTodosProdutos() {
-        return produtoDao.findAll();
+        return produtoDao.findAll(); //Método padrão do JPA
     }
 
     @Override
@@ -53,10 +53,9 @@ public class ProdutoServiceImpl implements ProdutoService {
     @Override
     public boolean removerProduto(long id) {
         try {
-            produtoDao.deleteById(id);
+            produtoDao.deleteById(id); //DELETE FROM CLIENTE WHERE ID - {}
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
