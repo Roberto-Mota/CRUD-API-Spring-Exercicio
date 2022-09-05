@@ -64,7 +64,7 @@ public class ProdutoServiceImpl implements ProdutoService {
         try {
             Produto produto = produtoDao.getById(id);
             System.out.println(produto.toString());
-            // TODO: Compreender por qual motivo preciso adota a anotação
+            // TODO: Compreender por qual motivo preciso adotar a anotação
             // "spring.jackson.serialization.fail-on-empty-beans=false"
             // Aparenta ser problema de serialização ou eager type
             return produto;

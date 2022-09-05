@@ -56,7 +56,6 @@ public class ProdutoResources {
 
     @RequestMapping(path = "/atualizarProduto", method = RequestMethod.PUT)
     public ResponseEntity<String> atualizarProduto(@RequestBody Produto produto) {
-        System.out.println("Produto chega aqui assim: " + produto.toString());
         boolean sucesso = produtoService.atualizarProduto(produto);
         if (sucesso) {
             return new ResponseEntity("Produto atualizado com sucesso!", HttpStatus.OK);
