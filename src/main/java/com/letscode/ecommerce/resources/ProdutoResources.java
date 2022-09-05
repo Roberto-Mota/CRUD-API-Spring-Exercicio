@@ -44,6 +44,16 @@ public class ProdutoResources {
         return ResponseEntity.ok(produtoList);
     }
 
+    @RequestMapping(path = "/lerProduto/{id}", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Produto> lerProdutoPorId(@PathVariable long id) {
+        Produto produto = produtoService.lerProdutoPorId(id);
+        if (produto == null) {
+            // TODO: Jogar que a lista esta vazia
+            // return ResponseEntity.ok(produtoList); // Mudar o retorno
+        } 
+        return ResponseEntity.ok(produto);
+    }
+
     @RequestMapping(path = "/atualizarProduto", method = RequestMethod.PUT)
     public ResponseEntity<String> atualizarProduto(@RequestBody Produto produto) {
         System.out.println("Produto chega aqui assim: " + produto.toString());

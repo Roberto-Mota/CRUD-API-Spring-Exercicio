@@ -11,7 +11,7 @@ import com.letscode.ecommerce.dto.ProdutoDto;
 import com.letscode.ecommerce.models.Produto;
 import com.letscode.ecommerce.services.ProdutoService;
 
-@Service //Não esquecer da anotação!
+@Service // Não esquecer da anotação!
 public class ProdutoServiceImpl implements ProdutoService {
 
     @Autowired
@@ -25,7 +25,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
     @Override
     public List<Produto> listarTodosProdutos() {
-        return produtoDao.findAll(); //Método padrão do JPA
+        return produtoDao.findAll(); // Método padrão do JPA
     }
 
     @Override
@@ -34,8 +34,7 @@ public class ProdutoServiceImpl implements ProdutoService {
             Produto produto = new Produto(produtoDto.getNome(), produtoDto.getPreco(), produtoDto.getDescricao());
             produtoDao.save(produto);
             return true;
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }
@@ -53,10 +52,24 @@ public class ProdutoServiceImpl implements ProdutoService {
     @Override
     public boolean removerProduto(long id) {
         try {
-            produtoDao.deleteById(id); //DELETE FROM CLIENTE WHERE ID - {}
+            produtoDao.deleteById(id); // DELETE FROM CLIENTE WHERE ID - {}
             return true;
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    @Override
+    public Produto lerProdutoPorId(long id) {
+        try {
+            Produto produto = produtoDao.getById(id);
+            System.out.println(produto.toString());
+            // TODO: Compreender por qual motivo preciso adota a anotação
+            // "spring.jackson.serialization.fail-on-empty-beans=false"
+            // Aparenta ser problema de serialização ou eager type
+            return produto;
+        } catch (Exception e) {
+            throw e;
         }
     }
 

@@ -20,4 +20,6 @@ public boolean atualizarProduto(Produto produto);
 
 public boolean removerProduto(long id);
 
+public Produto lerProdutoPorId(long id);
+
 }
