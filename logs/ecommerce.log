@@ -475,3 +475,31 @@ Caused by: com.fasterxml.jackson.core.JsonParseException: Unexpected character (
 2022-09-09 08:57:47.435  INFO 4600 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2022-09-09 08:57:47.441  INFO 4600 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-09-09 08:57:47.443  INFO 4600 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-09 08:57:54.132  INFO 10424 --- [main] c.l.ecommerce.EcommerceApplication       : Starting EcommerceApplication using Java 17.0.2 on DESKTOP-ESOKVGP with PID 10424 (D:\Estudos\Letscocode\Web\CRUD-API-Spring-Exercicio\target\classes started by Mota in D:\Estudos\Letscocode\Web\CRUD-API-Spring-Exercicio)
+2022-09-09 08:57:54.135  INFO 10424 --- [main] c.l.ecommerce.EcommerceApplication       : No active profile set, falling back to default profiles: default
+2022-09-09 08:57:54.714  INFO 10424 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-09 08:57:54.760  INFO 10424 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 2 JPA repository interfaces.
+2022-09-09 08:57:54.900  INFO 10424 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e5b5dc16-ae17-3381-b8b9-effdabc4153b
+2022-09-09 08:57:55.261  INFO 10424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-09 08:57:55.270  INFO 10424 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-09 08:57:55.271  INFO 10424 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-09-09 08:57:55.385  INFO 10424 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-09 08:57:55.385  INFO 10424 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1213 ms
+2022-09-09 08:57:55.415  INFO 10424 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-09 08:57:55.538  INFO 10424 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-09 08:57:55.547  INFO 10424 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:ecommerce'
+2022-09-09 08:57:55.689  INFO 10424 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-09 08:57:55.728  INFO 10424 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-09-09 08:57:55.853  INFO 10424 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-09 08:57:55.936  INFO 10424 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-09-09 08:57:56.378  INFO 10424 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-09 08:57:56.385  INFO 10424 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-09 08:57:56.873  WARN 10424 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-09 08:57:57.385  INFO 10424 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25e24908, org.springframework.security.web.context.SecurityContextPersistenceFilter@642614b7, org.springframework.security.web.header.HeaderWriterFilter@57fc6759, org.springframework.web.filter.CorsFilter@2941631f, org.springframework.security.web.authentication.logout.LogoutFilter@5737d116, com.letscode.ecommerce.configuration.security.JWTAuthenticationFilter@6130a6f5, com.letscode.ecommerce.configuration.security.JWTAuthorizationFilter@3fb0d9de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@37344d31, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44a98a23, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8ad6d29, org.springframework.security.web.session.SessionManagementFilter@7aef21bb, org.springframework.security.web.access.ExceptionTranslationFilter@3e18e693, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4930213b]
+2022-09-09 08:57:58.637  INFO 10424 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2022-09-09 08:57:58.703  INFO 10424 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-09 08:57:59.759  INFO 10424 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2022-09-09 08:57:59.776  INFO 10424 --- [main] c.l.ecommerce.EcommerceApplication       : Started EcommerceApplication in 7.048 seconds (JVM running for 7.328)
+2022-09-09 08:58:07.303  INFO 10424 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-09 08:58:07.303  INFO 10424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-09 08:58:07.305  INFO 10424 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
