@@ -3,6 +3,7 @@ package com.letscode.ecommerce.resources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +19,9 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import java.util.List;
 
 // Adicione Spring Security ao projeto atual
-
 // Adicione suporte a role ADMIN (exemplo até agora contém somente CLIENTE)
-
 // Para os endpoints Produtos (feitos no último exercício sobre JPA):
-
 // a) /GET produtos endpoint deve estar disponível a todos (até mesmo sem login)
-
 // b) /DELETE produtos pode somente ser acessado por usuários ADMIN
 
 
@@ -74,7 +71,8 @@ public class ProdutoResources {
             return new ResponseEntity("Atualização do produto falhou!", HttpStatus.BAD_REQUEST);
         }
     }
-
+    
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(path = "/deletarProduto/{id}", method = RequestMethod.DELETE)
     public ResponseEntity deletarProduto(@PathVariable long id) {
         boolean sucesso = produtoService.removerProduto(id);

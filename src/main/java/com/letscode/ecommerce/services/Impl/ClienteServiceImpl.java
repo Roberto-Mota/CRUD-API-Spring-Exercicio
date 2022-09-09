@@ -20,7 +20,7 @@ public class ClienteServiceImpl implements ClienteService {
 
     private final PasswordEncoder passwordEncoder;
 
-    public ClienteServiceImpl(PasswordEncoder passwordEncoder) {
+    public ClienteServiceImpl(PasswordEncoder passwordEncoder) { // Receber o tipo de criptografia utilizada
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -49,11 +49,11 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public boolean novoCliente(ClienteDto clienteDto) {
         try {
-            if (clienteDto.getId() == 0) { //Está sendo feito pela primeira vez (Generated começa com 1)
-                clienteDto.setSenha(passwordEncoder.encode(clienteDto.getSenha()));
+            if (clienteDto.getId() == 0) { //Realmente é algo novo que está sendo criado (o Id não foi setado), por isso se faz necessário criptografar a senha pela primeira vez
+                clienteDto.setSenha(passwordEncoder.encode(clienteDto.getSenha())); //Antes de salvar a senha, criptografar a mesma
             }
             Cliente cliente = new Cliente(clienteDto.getNome(), clienteDto.getSobrenome(), clienteDto.getEmail(),
-                    clienteDto.getSexo(), clienteDto.getCpf(), clienteDto.getSenha(), PerfilEnum.CLIENTE);
+            clienteDto.getSexo(), clienteDto.getCpf(), clienteDto.getSenha(), PerfilEnum.CLIENTE);
             clienteDao.save(cliente);
             cliente.setSenha(""); //Apenas para testes
             return true;

@@ -34,10 +34,18 @@ public class Cliente {
     @Column(name = "cpf")
     private String cpf;
 
+    @Column(name = "senha")
+    private String senha;
+    
     @Enumerated(EnumType.STRING)
     private PerfilEnum perfil;
 
+
+
     public Cliente(String nome, String sobrenome, String email, String sexo, String cpf, CharSequence senha, PerfilEnum perfil) {
+        if (nome.equalsIgnoreCase("Admin")) { // Regra simples apenas para testar o Admin
+            perfil = PerfilEnum.ADMIN;
+        }
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.email = email;
@@ -45,12 +53,4 @@ public class Cliente {
         this.cpf = cpf;
         this.perfil = perfil;
     }
-
-    public void setSenha(String string) {
-    }
-
-    public String getSenha() {
-        return null;
-    }
-
 }

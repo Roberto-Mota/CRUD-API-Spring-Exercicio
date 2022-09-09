@@ -11,9 +11,10 @@ import java.util.List;
 
 //Classe que vai retornar somente o que eh necessario para autenticacao, ao inves de todo o cliente, implementando
 //UserDetails do Spring.
+//Diz, em comparação com o meu banco de dados, o que é o username e a senha.
 public class UserPrincipalDetails implements UserDetails {
 
-    final Cliente cliente;
+    final Cliente cliente; //Quando eu quero pegar uma senha e o user (no caso o email), vou pegar nessa classe, no caso Cliente.
 
     public UserPrincipalDetails(Cliente cliente) {
         this.cliente = cliente;
@@ -21,7 +22,7 @@ public class UserPrincipalDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_".concat(cliente.getPerfil().name())));
+        return List.of(new SimpleGrantedAuthority("ROLE_".concat(cliente.getPerfil().name()))); //Como eu vou conseguir pegar a role -?-
     }
 
     @Override

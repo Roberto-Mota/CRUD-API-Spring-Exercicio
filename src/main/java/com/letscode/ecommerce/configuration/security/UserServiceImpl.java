@@ -12,8 +12,10 @@ import com.letscode.ecommerce.models.Cliente;
 import java.util.Objects;
 
 //Implementacaoo da classe UserDetailsService do Spring Security framework, usada para retornar as informacoes
-//de autenticacao e autorizacao. A interface soh tem um metodo (loadUserByUsername()), que nos iimplementamos para
-//"alimentar" informacoes sobre oo usuario para o Spring security API.
+//de autenticacao e autorizacao. A interface soh tem um metodo (loadUserByUsername()), que nós implementamos para
+//"alimentar" informacoes sobre o usuario para o Spring security API.
+
+//Aqui que me conecto com o banco de dados
 @Service
 public class UserServiceImpl implements UserDetailsService {
 
