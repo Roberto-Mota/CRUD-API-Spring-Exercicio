@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import com.letscode.ecommerce.dto.ClienteDto;
 import com.letscode.ecommerce.models.Cliente;
 import com.letscode.ecommerce.services.ClienteService;
@@ -30,7 +29,7 @@ public class ClienteEndpoints {
     }
 
     @RequestMapping(path="/cliente", method = RequestMethod.POST)
-    public ResponseEntity novoCliente(@RequestBody ClienteDto cliente) {
+    public ResponseEntity<Cliente> novoCliente(@RequestBody ClienteDto cliente) {
         boolean sucesso = clienteService.novoCliente(cliente);
 
         if(sucesso) {

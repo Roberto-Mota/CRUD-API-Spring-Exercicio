@@ -6,7 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 import java.util.List;
 
-public class JwtUtils {
+public class JwtUtils { //Construcao do JWT em si
 
     //Retorna o email vinculado ao JWT token
     public static String getEmail(String token) {
