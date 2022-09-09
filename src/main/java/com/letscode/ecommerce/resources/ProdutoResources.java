@@ -17,6 +17,17 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import java.util.List;
 
+// Adicione Spring Security ao projeto atual
+
+// Adicione suporte a role ADMIN (exemplo até agora contém somente CLIENTE)
+
+// Para os endpoints Produtos (feitos no último exercício sobre JPA):
+
+// a) /GET produtos endpoint deve estar disponível a todos (até mesmo sem login)
+
+// b) /DELETE produtos pode somente ser acessado por usuários ADMIN
+
+
 @RestController
 public class ProdutoResources {
 
