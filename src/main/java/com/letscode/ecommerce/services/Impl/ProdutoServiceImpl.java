@@ -1,4 +1,4 @@
-package com.letscode.ecommerce.services.Impl;
+package com.letscode.ecommerce.services.impl;
 
 import java.time.LocalDateTime;
 import java.util.List;
