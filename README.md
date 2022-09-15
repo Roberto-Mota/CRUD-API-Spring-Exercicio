@@ -11,7 +11,10 @@ Criar uma forma de contexto onde o cliente possui um "carrinho" (pedido) e é po
 
 Roteiro:
 Cadastrar Cliente -Consegui cadastrar-
-Logar Cliente -Não consegui logar cliente, erro "bcrypt.BCryptPasswordEncoder     : Empty encoded password"
+Logar Cliente
+-Não consegui logar cliente, erro "bcrypt.BCryptPasswordEncoder     : Empty encoded password"-> (Solved: Problema com construtor)
+
+-Preciso checar a efetividade do Token-
 Criar Pedido
 Adicionar Produto em Pedido
 Fechar Pedido

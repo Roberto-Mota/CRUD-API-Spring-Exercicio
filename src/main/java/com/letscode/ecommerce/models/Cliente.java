@@ -42,7 +42,7 @@ public class Cliente {
 
 
 
-    public Cliente(String nome, String sobrenome, String email, String sexo, String cpf, CharSequence senha, PerfilEnum perfil) {
+    public Cliente(String nome, String sobrenome, String email, String sexo, String cpf, String senha, PerfilEnum perfil) {
         if (nome.equalsIgnoreCase("Admin")) { // Regra simples apenas para testar o Admin
             perfil = PerfilEnum.ADMIN;
         }
@@ -52,5 +52,14 @@ public class Cliente {
         this.sexo = sexo;
         this.cpf = cpf;
         this.perfil = perfil;
+        this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente [cpf=" + cpf + ", email=" + email + ", id=" + id + ", nome=" + nome + ", perfil=" + perfil
+                + ", senha=" + senha + ", sexo=" + sexo + ", sobrenome=" + sobrenome + "]";
+    }
+    
+    
 }

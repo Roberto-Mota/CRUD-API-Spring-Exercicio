@@ -47,24 +47,27 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public boolean novoCliente(ClienteDto clienteDto) {
+    public Cliente novoCliente(ClienteDto clienteDto) {
         try {
             System.out.println("ClienteDto recebeido: " + clienteDto.toString());
             System.out.println("Inicio do cadastro de um cliente");
             if (clienteDto.getId() == 0) { //Realmente é algo novo que está sendo criado (o Id não foi setado), por isso se faz necessário criptografar a senha pela primeira vez
                 System.out.println("Primeiro cadastro identificado");
                 clienteDto.setSenha(passwordEncoder.encode(clienteDto.getSenha())); //Antes de salvar a senha, criptografar a mesma
+                System.out.println("Senha pós encoder: " + clienteDto.getSenha());
                 System.out.println("Criptografia bem sucedida");
             }
             Cliente cliente = new Cliente(clienteDto.getNome(), clienteDto.getSobrenome(), clienteDto.getEmail(),
             clienteDto.getSexo(), clienteDto.getCpf(), clienteDto.getSenha(), PerfilEnum.CLIENTE);
-            System.out.println("Criação de Objeto bem sucedida -?- " + cliente.toString());
+            System.out.println("Criação de Objeto bem sucedida -?-");
+            System.out.println("Cliente: " + cliente.toString());
+            System.out.println("ClienteDto: " + clienteDto.toString());
             clienteDao.save(cliente);
             System.out.println("Cliente salvo com sucesso");
-            cliente.setSenha("1234"); //Apenas para testes
-            return true;
+            //cliente.setSenha("1234"); //Apenas para testes
+            return cliente;
         } catch (Exception e) {
-            return false;
+            return null;
         }
     }
 }

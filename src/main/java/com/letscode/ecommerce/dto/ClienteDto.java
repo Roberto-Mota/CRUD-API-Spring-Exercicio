@@ -72,7 +72,7 @@ public class ClienteDto {
     }
 
     public String getSenha() {
-        System.out.println("getSenha executado");
+        System.out.println("getSenha executado: " + this.senha);
         return this.senha;
     }
 
