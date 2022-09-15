@@ -8,6 +8,20 @@ public class ClienteDto {
     private String email;
     private String sexo;
     private String cpf;
+    private String senha;
+
+    public ClienteDto(long id, String nome, String sobrenome, String email, String sexo, String cpf, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.email = email;
+        this.sexo = sexo;
+        this.cpf = cpf;
+        this.senha = senha;
+    }
+
+    public ClienteDto() {
+    }
 
     public long getId() {
         return id;
@@ -57,23 +71,19 @@ public class ClienteDto {
         this.cpf = cpf;
     }
 
-    public ClienteDto(long id, String nome, String sobrenome, String email, String sexo, String cpf) {
-        this.id = id;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.email = email;
-        this.sexo = sexo;
-        this.cpf = cpf;
+    public String getSenha() {
+        System.out.println("getSenha executado");
+        return this.senha;
     }
 
-    public ClienteDto() {
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public CharSequence getSenha() {
-        return null;
-    }
-
-    public void setSenha(String encode) {
+    @Override
+    public String toString() {
+        return "ClienteDto [cpf=" + cpf + ", email=" + email + ", id=" + id + ", nome=" + nome + ", senha=" + senha
+                + ", sexo=" + sexo + ", sobrenome=" + sobrenome + "]";
     }
 
 }

@@ -56,6 +56,7 @@ public class WebSecurityConfig {
                     .antMatchers(HttpMethod.POST, "/cliente").permitAll()
                     .antMatchers(HttpMethod.POST, "/login").permitAll()
                     .antMatchers(HttpMethod.GET, "/lerProdutos").permitAll()
+                    .antMatchers(HttpMethod.GET, "/cliente").permitAll() //Temporario para testes
                     .antMatchers("/instances/**").permitAll()
                     .antMatchers("/actuator/**").permitAll()
                 .anyRequest().authenticated() //Qualquerr outra requisicao obriga autenticacao

@@ -30,13 +30,12 @@ public class ClienteEndpoints {
 
     @RequestMapping(path="/cliente", method = RequestMethod.POST)
     public ResponseEntity<Cliente> novoCliente(@RequestBody ClienteDto cliente) {
-        boolean sucesso = clienteService.novoCliente(cliente);
-
-        if(sucesso) {
+        try {
+            // TODO: refatorar o endpoint para ter handler de erro e devolver mensagem de erro 
+            boolean sucesso = clienteService.novoCliente(cliente);
             return new ResponseEntity("Cliente criado com sucesso!", HttpStatus.CREATED);
-        }
-        else {
-            return new ResponseEntity("Criacao do cliente falhou!", HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity("Criacao do cliente falhou! - " + e.getClass().getSimpleName(), HttpStatus.BAD_REQUEST);
         }
     }
 
