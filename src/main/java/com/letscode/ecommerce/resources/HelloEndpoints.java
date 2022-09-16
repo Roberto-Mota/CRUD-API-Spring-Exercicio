@@ -3,12 +3,15 @@ package com.letscode.ecommerce.resources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.letscode.ecommerce.configuration.security.UserPrincipalDetails;
 import com.letscode.ecommerce.services.TempoService;
 
 import org.slf4j.Logger;
@@ -30,8 +33,11 @@ public class HelloEndpoints {
 
      Logger log = LoggerFactory.getLogger(HelloEndpoints.class); //Objetos Logger não são construidos por mim, preciso apenas passar a classe para um factory
 
+    @PreAuthorize("hasAnyRole('CLIENTE')")
     @RequestMapping(path="/hello", method = RequestMethod.GET)
-    public ResponseEntity<String> hello() {
+    public ResponseEntity<String> hello(@AuthenticationPrincipal UserPrincipalDetails user) {
+        System.out.println(user.toString());
+        System.out.println("UserName: " + user.getUsername());
         log.error("Não consegui");
         log.info("Informação aqui");
         //log.debug("Debug aqui");

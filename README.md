@@ -12,9 +12,9 @@ Criar uma forma de contexto onde o cliente possui um "carrinho" (pedido) e é po
 Roteiro:
 Cadastrar Cliente -Consegui cadastrar-
 Logar Cliente
--Não consegui logar cliente, erro "bcrypt.BCryptPasswordEncoder     : Empty encoded password"-> (Solved: Problema com construtor)
+[Não consegui logar cliente, erro "bcrypt.BCryptPasswordEncoder     : Empty encoded password"] -> (Solved: Problema com construtor)
+[-Preciso checar a efetividade do Token-] -> (Lembrar de colocar o token no header)
 
--Preciso checar a efetividade do Token-
-Criar Pedido
+Criar Pedido [Preciso pegar o contexto do usuario pra criar pedido mas deu erro: java.lang.NullPointerException: Cannot invoke "Object.toString()" because "user" is null]
 Adicionar Produto em Pedido
 Fechar Pedido
