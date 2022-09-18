@@ -10,11 +10,16 @@ TODO:
 Criar uma forma de contexto onde o cliente possui um "carrinho" (pedido) e é possível adicionar produtos nesse pedido
 
 Roteiro:
-Cadastrar Cliente -Consegui cadastrar-
-Logar Cliente
-[Não consegui logar cliente, erro "bcrypt.BCryptPasswordEncoder     : Empty encoded password"] -> (Solved: Problema com construtor)
-[-Preciso checar a efetividade do Token-] -> (Lembrar de colocar o token no header)
+**Cadastrar Cliente**
+ -Consegui cadastrar sem problemas-
 
-Criar Pedido [Preciso pegar o contexto do usuario pra criar pedido mas deu erro: java.lang.NullPointerException: Cannot invoke "Object.toString()" because "user" is null]
-Adicionar Produto em Pedido
+**Logar Cliente**
+[Não consegui logar cliente, erro "bcrypt.BCryptPasswordEncoder     : Empty encoded password"] -> (Solved: Problema com construtor)
+[-Preciso checar a efetividade do Token-] -> (Tip: Lembrar de colocar o token no header)
+
+**Criar Pedido**
+[Preciso pegar o contexto do usuario pra criar pedido mas deu erro: java.lang.NullPointerException: Cannot invoke "Object.toString()" because "user" is null] -> (Alternative: passei no parâmetro de cada método o "Authentication authentication", meio XGH, TODO: ver uma forma mais padronizada de fazer autenticação)
+
+**Adicionar Produto em Pedido**
+[Quando uma requisição para adicionar um produto é feita, eu preciso encontrar o pedido e adicionar o produto a ele] - Problema ao encontrar e salvar o produto
 Fechar Pedido

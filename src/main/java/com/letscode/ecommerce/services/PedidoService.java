@@ -2,6 +2,7 @@ package com.letscode.ecommerce.services;
 
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.letscode.ecommerce.dto.PedidoDto;
@@ -17,12 +18,16 @@ public interface PedidoService {
 
     public boolean atualizarPedido(Pedido pedido);
 
-    public boolean adicionarProduto(ProdutoDto produtoDto);
+    public boolean adicionarProduto(long id);
 
     public boolean removerProduto(ProdutoDto produtoDto);
 
     public boolean removerPedido(long id);
 
+    public boolean fecharPedido(long id);
+
     public Pedido lerPedidoPorId(long id);
+
+    public Pedido findPedido(); //Versão XGH de validação de cliente
 
 }

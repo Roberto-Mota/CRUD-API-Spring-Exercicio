@@ -1,5 +1,11 @@
 package com.letscode.ecommerce.dto;
 
+import java.util.List;
+
+import com.letscode.ecommerce.dao.ProdutoDao;
+import com.letscode.ecommerce.models.Pedido;
+import com.letscode.ecommerce.models.Produto;
+
 public class ClienteDto {
 
     private long id;
@@ -9,6 +15,7 @@ public class ClienteDto {
     private String sexo;
     private String cpf;
     private String senha;
+    private Pedido pedido;
 
     public ClienteDto(long id, String nome, String sobrenome, String email, String sexo, String cpf, String senha) {
         this.id = id;
@@ -18,6 +25,7 @@ public class ClienteDto {
         this.sexo = sexo;
         this.cpf = cpf;
         this.senha = senha;
+
     }
 
     public ClienteDto() {
@@ -27,8 +35,14 @@ public class ClienteDto {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
     public String getNome() {

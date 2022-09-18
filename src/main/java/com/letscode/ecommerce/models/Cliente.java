@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Getter
@@ -36,6 +38,10 @@ public class Cliente {
 
     @Column(name = "senha")
     private String senha;
+
+   @OneToOne(cascade = CascadeType.ALL)
+   //@Column(name = "pedido")
+    private Pedido pedido;
     
     @Enumerated(EnumType.STRING)
     private PerfilEnum perfil;
@@ -55,11 +61,15 @@ public class Cliente {
         this.senha = senha;
     }
 
+
+
     @Override
     public String toString() {
-        return "Cliente [cpf=" + cpf + ", email=" + email + ", id=" + id + ", nome=" + nome + ", perfil=" + perfil
-                + ", senha=" + senha + ", sexo=" + sexo + ", sobrenome=" + sobrenome + "]";
+        return "Cliente [cpf=" + cpf + ", email=" + email + ", id=" + id + ", nome=" + nome + ", pedido=" + pedido
+                + ", perfil=" + perfil + ", senha=" + senha + ", sexo=" + sexo + ", sobrenome=" + sobrenome + "]";
     }
+
+
     
     
 }

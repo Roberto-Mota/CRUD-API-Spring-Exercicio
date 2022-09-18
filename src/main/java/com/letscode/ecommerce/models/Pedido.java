@@ -22,6 +22,9 @@ public class Pedido {
         this.dateTime = LocalDateTime.now();
     }
 
+    public Pedido() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -40,5 +43,15 @@ public class Pedido {
 
     @Column(name = "dateTime")
     private LocalDateTime dateTime;
+
+    public void addProduto(Produto produto) {
+        this.listaProduto.add(produto);
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido [dateTime=" + dateTime + ", emailCliente=" + emailCliente + ", id=" + id + ", listaProduto="
+                + listaProduto + ", nomeCliente=" + nomeCliente + "]";
+    }
 
 }
