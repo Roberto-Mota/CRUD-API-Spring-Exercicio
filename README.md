@@ -23,3 +23,6 @@ Roteiro:
 **Adicionar Produto em Pedido**
 [Quando uma requisição para adicionar um produto é feita, eu preciso encontrar o pedido e adicionar o produto a ele] - [Problema ao encontrar e salvar o produto] (Solved: Não estava relacionando o pedido ao cliente)
 Fechar Pedido
+
+**Aplicar Documentação Swagger**
+[Problema ao carregar a URL do Swagger, está voltando blank page com a div carregada]
