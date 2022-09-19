@@ -56,6 +56,7 @@ public class WebSecurityConfig {
                     .antMatchers(HttpMethod.POST, "/cliente").permitAll()
                     .antMatchers(HttpMethod.POST, "/login").permitAll()
                     .antMatchers(HttpMethod.GET, "/lerProdutos").permitAll()
+                    .antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll() // Para testes
                     .antMatchers(HttpMethod.GET, "/hello").authenticated()
                     .antMatchers(HttpMethod.GET, "/cliente").permitAll() //Temporario para testes
                     .antMatchers("/instances/**").permitAll()

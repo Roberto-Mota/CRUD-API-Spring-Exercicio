@@ -21,5 +21,5 @@ Roteiro:
 [Preciso pegar o contexto do usuario pra criar pedido mas deu erro: java.lang.NullPointerException: Cannot invoke "Object.toString()" because "user" is null] -> (Alternative: passei no parâmetro de cada método o "Authentication authentication", meio XGH, TODO: ver uma forma mais padronizada de fazer autenticação)
 
 **Adicionar Produto em Pedido**
-[Quando uma requisição para adicionar um produto é feita, eu preciso encontrar o pedido e adicionar o produto a ele] - Problema ao encontrar e salvar o produto
+[Quando uma requisição para adicionar um produto é feita, eu preciso encontrar o pedido e adicionar o produto a ele] - [Problema ao encontrar e salvar o produto] (Solved: Não estava relacionando o pedido ao cliente)
 Fechar Pedido

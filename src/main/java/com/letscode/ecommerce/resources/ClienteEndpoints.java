@@ -13,13 +13,13 @@ import com.letscode.ecommerce.services.ClienteService;
 import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-
 @RestController
 public class ClienteEndpoints {
 
     @Autowired
     ClienteService clienteService;
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @Operation(description = "Esse metodo retorna todos os clientes do sistema, sem filtros.")
     @RequestMapping(path="/cliente", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Cliente>> getAllCients() {
@@ -28,6 +28,7 @@ public class ClienteEndpoints {
         return ResponseEntity.ok(clienteList);
     }
 
+    @Operation(description = "Esse metodo cadastra um novo cliente no sistema.")
     @RequestMapping(path="/cliente", method = RequestMethod.POST)
     public ResponseEntity<Cliente> novoCliente(@RequestBody ClienteDto clienteDto) {
         try {
@@ -39,6 +40,7 @@ public class ClienteEndpoints {
         }
     }
 
+    @Operation(description = "Esse metodo atualiza um cliente do sistema.")
     @RequestMapping(path="/cliente", method = RequestMethod.PUT)
     public ResponseEntity atualizarCliente(@RequestBody Cliente cliente) {
         boolean sucesso = clienteService.atualizarCliente(cliente);
@@ -50,6 +52,7 @@ public class ClienteEndpoints {
         }
     }
 
+    @Operation(description = "Esse metodo deleta um cliente do sistema.")
     @PreAuthorize("hasAnyRole('ADMIN')") //Só Admin pode deletar (acessar esse endpoint)
     @RequestMapping(path="/cliente/{id}", method = RequestMethod.DELETE)
     public ResponseEntity removerCliente(@PathVariable long id) {

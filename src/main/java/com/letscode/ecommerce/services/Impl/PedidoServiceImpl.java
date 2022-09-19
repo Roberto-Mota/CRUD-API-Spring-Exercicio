@@ -40,17 +40,13 @@ public class PedidoServiceImpl implements PedidoService {
     @Autowired
     IAuthenticationFacade authFacade;
 
-    //Pedido pedidoCliente = pedidoDao.findByEmailCliente(authFacade.getAuthentication().getPrincipal().toString());
-
-    @Override
-    public List<Pedido> listarTodosPedidos() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    // Cliente cliente = findClienteLogado(); se colocar aqui apenas recebo
+    // NullPointer -?-
+    // Pedido pedidoCliente =
+    // pedidoDao.findByEmailCliente(authFacade.getAuthentication().getPrincipal().toString());
 
     @Override
     public boolean adicionarProduto(long id) {
-        // TODO Procurar o produto no banco de dados e inseri-lo na lista do pedido
         try {
             // Acha o produto
             Optional<Produto> produto = produtoDao.findById(id);
@@ -70,57 +66,95 @@ public class PedidoServiceImpl implements PedidoService {
     }
 
     @Override
-    public boolean atualizarPedido(Pedido pedido) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public boolean fecharPedido(long id) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
-    public Pedido lerPedidoPorId(long id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public boolean novoPedido(PedidoDto pedidoDto) {
+    public boolean fecharPedido() {
         try {
-            Pedido pedido = new Pedido(pedidoDto.getNomeCliente(), pedidoDto.getEmailCliente());
-            String emailCliente = authFacade.getAuthentication().getPrincipal().toString();
-            Cliente cliente = clienteDao.findByEmail(emailCliente);
+            Cliente cliente = findClienteLogado();
+            Pedido pedido = cliente.getPedido();
+
+            pedido.setIsOpen(false);
+
+            pedidoDao.save(pedido);
             cliente.setPedido(pedido);
-            pedidoDao.save(cliente.getPedido());
+            clienteDao.save(cliente);
+            
             return true;
         } catch (Exception e) {
-            System.out.println("Exeption ao encontrar pedido: " + e.getMessage());
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    // TODO: Futura implementação de mais de um pedido por cliente
+    // @Override
+    // public Pedido lerPedidoPorId(long id) {
+    // // TODO Auto-generated method stub
+    // return null;
+    // }
+
+    @Override
+    public boolean novoPedido() {
+        try {
+            Cliente cliente = findClienteLogado();
+            if (cliente.getPedido() == null) {
+                Pedido pedido = new Pedido(cliente.getNome(), cliente.getEmail());
+                cliente.setPedido(pedido);
+                pedidoDao.save(cliente.getPedido());
+                return true;
+            } else {
+                System.out.println("Cliente já possui pedido aberto.");
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Exeption ao criar pedido: " + e.getMessage());
             return false;
         }
     }
 
     @Override
     public boolean removerPedido(long id) {
-        // TODO Auto-generated method stub
+        // Se o id lançado for o mesmo id do pedido do cliente (Clientes só podem ter um
+        // pedido aberto)
+        try {
+        Cliente cliente = findClienteLogado();
+        Pedido pedidoCliente = cliente.getPedido();
+        if (pedidoCliente.getId() == id) {
+            pedidoDao.delete(pedidoCliente);
+            cliente.setPedido(null);
+            clienteDao.save(cliente);
+            return true;
+        } else {
+            // Pedido não existe ou não pertence a pessoa logada (Logo lançar que não
+            // encontrou)
+            return false;
+        }
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
         return false;
+    }
     }
 
     @Override
-    public boolean removerProduto(ProdutoDto produtoDto) {
-        // TODO Auto-generated method stub
-        return false;
+    public boolean removerProduto(long id) {
+        try {
+            Cliente cliente = findClienteLogado();
+            Pedido pedido = cliente.getPedido();
+            List<Produto> listaProduto = pedido.getListaProduto().stream().filter(produto -> produto.getId() != id)
+                    .toList();
+            pedido.setListaProduto(listaProduto);
+            cliente.setPedido(pedido);
+            pedidoDao.save(pedido);
+            clienteDao.save(cliente);
+            return true;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     @Override
     public Pedido findPedido() {// Authentication authentication) {
         System.out.println("Iniciada a procura pelo pedido");
-        String emailCliente = authFacade.getAuthentication().getPrincipal().toString();
-        System.out.println("Cliente o qual terá o pedido procurado: " + emailCliente);
-        //Pedido pedido = pedidoDao.findByemailCliente(emailCliente);
-        Cliente cliente = clienteDao.findByEmail(emailCliente);
+        Cliente cliente = findClienteLogado();
         System.out.println("Cliente encontrado: " + cliente.toString());
         Pedido pedido = cliente.getPedido();
         System.out.println("Pedido encontrado: " + pedido.toString());
@@ -132,12 +166,10 @@ public class PedidoServiceImpl implements PedidoService {
         // userService.loadUserByUsername(authentication.getPrincipal().toString());
     }
 
-    /*
-     * Preciso checar se o o usuario é dono da lista
-     * Pra isso eu posso usar o (principal.toString()) e contains authenticated=true
-     * no toString
-     * e se o user é == au do dono da lista, mas parece ser meio gambiarra (se eu
-     * não achar outra solução vai ser essa msm)
-     */
+    public Cliente findClienteLogado() {
+        String emailCliente = authFacade.getAuthentication().getPrincipal().toString();
+        Cliente cliente = clienteDao.findByEmail(emailCliente);
+        return cliente;
+    }
 
 }

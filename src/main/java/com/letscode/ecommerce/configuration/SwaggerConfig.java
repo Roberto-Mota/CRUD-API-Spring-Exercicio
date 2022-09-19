@@ -14,7 +14,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("Eccommerce API")
                         .description("Lets Code - Banco do Brasil")
-                        .version("v0.0.1")
+                        .version("v0.4.2")
                 );
     }
 

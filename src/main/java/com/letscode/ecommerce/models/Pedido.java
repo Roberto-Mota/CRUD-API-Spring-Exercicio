@@ -20,6 +20,7 @@ public class Pedido {
         this.nomeCliente = nomeCliente;
         this.emailCliente = emailCliente;
         this.dateTime = LocalDateTime.now();
+        this.isOpen = true;
     }
 
     public Pedido() {
@@ -44,14 +45,18 @@ public class Pedido {
     @Column(name = "dateTime")
     private LocalDateTime dateTime;
 
+    @Column(name = "isOpen")
+    private Boolean isOpen;
+
     public void addProduto(Produto produto) {
         this.listaProduto.add(produto);
     }
 
     @Override
     public String toString() {
-        return "Pedido [dateTime=" + dateTime + ", emailCliente=" + emailCliente + ", id=" + id + ", listaProduto="
-                + listaProduto + ", nomeCliente=" + nomeCliente + "]";
+        return "Pedido [dateTime=" + dateTime + ", emailCliente=" + emailCliente + ", id=" + id + ", isOpen=" + isOpen
+                + ", listaProduto=" + listaProduto + ", nomeCliente=" + nomeCliente + "]";
     }
+
 
 }

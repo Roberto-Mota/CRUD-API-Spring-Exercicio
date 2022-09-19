@@ -12,21 +12,17 @@ import com.letscode.ecommerce.models.Pedido;
 @Service
 public interface PedidoService {
 
-    List<Pedido> listarTodosPedidos();
-
-    public boolean novoPedido(PedidoDto pedido);
-
-    public boolean atualizarPedido(Pedido pedido);
+    public boolean novoPedido();
 
     public boolean adicionarProduto(long id);
 
-    public boolean removerProduto(ProdutoDto produtoDto);
+    public boolean removerProduto(long id);
 
     public boolean removerPedido(long id);
 
-    public boolean fecharPedido(long id);
+    public boolean fecharPedido();
 
-    public Pedido lerPedidoPorId(long id);
+    // public Pedido lerPedidoPorId(long id); TODO: Futura implementação de mais de um pedido por cliente
 
     public Pedido findPedido(); //Versão XGH de validação de cliente
 
