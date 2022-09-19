@@ -3,17 +3,14 @@ package com.letscode.ecommerce.resources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.letscode.ecommerce.dto.PedidoDto;
-import com.letscode.ecommerce.dto.ProdutoDto;
 import com.letscode.ecommerce.models.Pedido;
 import com.letscode.ecommerce.services.PedidoService;
+
+import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
 public class PedidoResources {
@@ -21,6 +18,7 @@ public class PedidoResources {
     @Autowired
     PedidoService pedidoService;
     
+    @Operation(description = "Esse metodo serve para ler o pedido do cliente logado.")
     @RequestMapping(path = "/lerPedido", method = RequestMethod.GET)
     public ResponseEntity<String> lerPedido() {
         try {
@@ -31,6 +29,7 @@ public class PedidoResources {
         }
     }
 
+    @Operation(description = "Esse metodo cria um pedido para o cliente.")
     @RequestMapping(path = "/criarPedido", method = RequestMethod.POST)
     public ResponseEntity<String> criarPedido() {
         boolean sucesso = pedidoService.novoPedido();
@@ -41,6 +40,7 @@ public class PedidoResources {
         }
     }
 
+    @Operation(description = "Esse metodo adiciona um produto no pedido.")
     @RequestMapping(path = "/adicionarProduto/{id}", method = RequestMethod.PUT)
     public ResponseEntity<String> adicionarProduto(@PathVariable Long id  /*, Authentication authentication)*/)  {
         boolean sucesso = pedidoService.adicionarProduto(id);
@@ -51,6 +51,7 @@ public class PedidoResources {
         }
     }
 
+    @Operation(description = "Esse metodo fecha o pedido do cliente.")
     @RequestMapping(path = "/fecharPedido", method = RequestMethod.PUT)
     public ResponseEntity<String> fecharPedido(/*@PathVariable Long id , Authentication authentication)*/) {
         boolean sucesso = pedidoService.fecharPedido();
@@ -61,6 +62,7 @@ public class PedidoResources {
         }
     }
 
+    @Operation(description = "Esse metodo remove o pedido do cliente.")
     @RequestMapping(path = "/removerPedido/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<String> removerPedido(@PathVariable Long id /*, Authentication authentication)*/) {
         boolean sucesso = pedidoService.removerPedido(id);
@@ -71,6 +73,7 @@ public class PedidoResources {
         }
     }
 
+    @Operation(description = "Esse metodo remove um produto do pedido do cliente.")
     @RequestMapping(path = "/removerProduto/{id}", method = RequestMethod.PUT)
     public ResponseEntity<String> removerProduto(@PathVariable Long id /*, Authentication authentication)*/) {
         boolean sucesso = pedidoService.removerProduto(id);

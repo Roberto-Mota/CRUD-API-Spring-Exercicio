@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.letscode.ecommerce.configuration.security.UserPrincipalDetails;
 import com.letscode.ecommerce.services.TempoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,6 +48,7 @@ public class HelloEndpoints {
                                                                 // apenas passar a classe para um factory
 
     @PreAuthorize("hasAnyRole('CLIENTE')")
+    @Operation(description = "Esse metodo é apenas um hello world para testar os logs (São mais úteis nos services).")
     @RequestMapping(path = "/hello", method = RequestMethod.GET)
     public ResponseEntity<String> hello(Principal principal) {
         // Aparentemente o principal tem menos possibilidades de manipulação em comparação ao Authentication
@@ -58,6 +61,7 @@ public class HelloEndpoints {
         return new ResponseEntity<String>("Hello world!", HttpStatus.OK);
     }
 
+    @Operation(description = "Esse metodo serve apenas para ilustrar um PathVariable.")
     @RequestMapping(path = "/hello/{nome}", method = RequestMethod.GET)
     public ResponseEntity<String> helloNome(@PathVariable String nome, Authentication authentication) {
 
@@ -109,6 +113,7 @@ public class HelloEndpoints {
         return new ResponseEntity<String>("Olá, " + nome, HttpStatus.OK);
     }
 
+    @Operation(description = "Esse metodo serve apenas para ilustrar um PathVariable com service invocado.")
     @RequestMapping(path = "/hello/{nome}/horario", method = RequestMethod.GET)
     public ResponseEntity<String> helloNomeHorario(@PathVariable String nome) {
         return new ResponseEntity<String>("Olá, " + nome + " " + tempoService.testa(), HttpStatus.OK);

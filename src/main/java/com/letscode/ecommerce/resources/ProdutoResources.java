@@ -14,6 +14,8 @@ import com.letscode.ecommerce.dto.ProdutoDto;
 import com.letscode.ecommerce.models.Produto;
 import com.letscode.ecommerce.services.ProdutoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import java.util.List;
@@ -31,6 +33,7 @@ public class ProdutoResources {
     @Autowired
     ProdutoService produtoService;
 
+    @Operation(description = "Esse metodo cria um produto.")
     @RequestMapping(path = "/criarProduto", method = RequestMethod.POST)
     public ResponseEntity<String> criarProduto(@RequestBody ProdutoDto produtoDto) {
         boolean sucesso = produtoService.novoProduto(produtoDto);
@@ -41,6 +44,7 @@ public class ProdutoResources {
         }
     }
 
+    @Operation(description = "Esse metodo lista todos os produtos.")
     @RequestMapping(path = "/lerProdutos", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Produto>> lerProdutos() {
 
@@ -52,6 +56,7 @@ public class ProdutoResources {
         return ResponseEntity.ok(produtoList);
     }
 
+    @Operation(description = "Esse metodo devolve um produto específico.")
     @RequestMapping(path = "/lerProduto/{id}", method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<Produto> lerProdutoPorId(@PathVariable long id) {
         Produto produto = produtoService.lerProdutoPorId(id);
@@ -62,6 +67,7 @@ public class ProdutoResources {
         return ResponseEntity.ok(produto);
     }
 
+    @Operation(description = "Esse metodo atualiza um produto específico.")
     @RequestMapping(path = "/atualizarProduto", method = RequestMethod.PUT)
     public ResponseEntity<String> atualizarProduto(@RequestBody Produto produto) {
         boolean sucesso = produtoService.atualizarProduto(produto);
@@ -72,6 +78,7 @@ public class ProdutoResources {
         }
     }
     
+    @Operation(description = "Esse metodo deleta um produto específico.")
     @PreAuthorize("hasAnyRole('ADMIN')")
     @RequestMapping(path = "/deletarProduto/{id}", method = RequestMethod.DELETE)
     public ResponseEntity deletarProduto(@PathVariable long id) {
